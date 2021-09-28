@@ -211,6 +211,7 @@ class Jiffy {
     int milliseconds = 0,
     int microseconds = 0,
   }) {
+    _dateTime = _addMonths(_dateTime, months + years * 12);
     _dateTime = _dateTime.add(duration);
     _dateTime = _dateTime.add(Duration(
       days: days + (weeks * 7),
@@ -220,8 +221,6 @@ class Jiffy {
       milliseconds: milliseconds,
       microseconds: microseconds,
     ));
-    _dateTime = _addMonths(_dateTime, months);
-    _dateTime = _addMonths(_dateTime, years * 12);
     return clone();
   }
 
@@ -246,8 +245,7 @@ class Jiffy {
       milliseconds: milliseconds,
       microseconds: microseconds,
     ));
-    _dateTime = _addMonths(_dateTime, -months);
-    _dateTime = _addMonths(_dateTime, -years * 12);
+    _dateTime = _addMonths(_dateTime, -(months + years * 12));
     return clone();
   }
 
