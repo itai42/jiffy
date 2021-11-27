@@ -30,6 +30,7 @@ Map<String, Locale> _availableLocales = {
   'en_gb': EnLocale(StartOfWeek.MONDAY),
   'en_ie': EnLocale(StartOfWeek.MONDAY),
   'en_il': EnLocale(StartOfWeek.SUNDAY),
+  'he_il': EnLocale(StartOfWeek.SUNDAY),
   'en_nz': EnLocale(StartOfWeek.SUNDAY),
   'es': EsLocale(StartOfWeek.MONDAY),
   'es_do': EsLocale(StartOfWeek.MONDAY),

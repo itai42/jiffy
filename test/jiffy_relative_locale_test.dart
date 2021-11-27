@@ -35,18 +35,18 @@ void main() {
   });
 
   group('Test for all relative date locales', () {
-    var jiffy1 = Jiffy();
-    var jiffy2 = Jiffy()..add(duration: Duration(seconds: 1));
-    var jiffy3 = Jiffy()..subtract(duration: Duration(minutes: 1));
-    var jiffy5 = Jiffy()..subtract(duration: Duration(minutes: 10));
-    var jiffy6 = Jiffy()..subtract(duration: Duration(hours: 1));
-    var jiffy7 = Jiffy()..subtract(duration: Duration(hours: 10));
-    var jiffy8 = Jiffy()..subtract(duration: Duration(days: 1));
-    var jiffy9 = Jiffy()..subtract(duration: Duration(days: 10));
-    var jiffy10 = Jiffy('2019-09-01');
-    var jiffy11 = Jiffy()..subtract(months: 10);
-    var jiffy12 = Jiffy()..subtract(years: 1);
-    var jiffy13 = Jiffy()..subtract(years: 10);
+    var jiffy1 = Jiffy.parseDateTime();
+    var jiffy2 = Jiffy.parseDateTime()..jiffyAdd(duration: Duration(seconds: 1));
+    var jiffy3 = Jiffy.parseDateTime()..jiffySubtract(duration: Duration(minutes: 1));
+    var jiffy5 = Jiffy.parseDateTime()..jiffySubtract(duration: Duration(minutes: 10));
+    var jiffy6 = Jiffy.parseDateTime()..jiffySubtract(duration: Duration(hours: 1));
+    var jiffy7 = Jiffy.parseDateTime()..jiffySubtract(duration: Duration(hours: 10));
+    var jiffy8 = Jiffy.parseDateTime()..jiffySubtract(duration: Duration(days: 1));
+    var jiffy9 = Jiffy.parseDateTime()..jiffySubtract(duration: Duration(days: 10));
+    var jiffy10 = Jiffy.parseDateTime('2019-09-01');
+    var jiffy11 = Jiffy.parseDateTime()..jiffySubtract(months: 10);
+    var jiffy12 = Jiffy.parseDateTime()..jiffySubtract(years: 1);
+    var jiffy13 = Jiffy.parseDateTime()..jiffySubtract(years: 10);
 
     test(
         'test Jiffy().locale() method with parsing ar locale should return correct date time in ar locale',
@@ -60,7 +60,7 @@ void main() {
       expect(jiffy7.fromNow(), 'منذ ۱۰ ساعات ');
       expect(jiffy8.fromNow(), 'منذ يوم واحد');
       expect(jiffy9.fromNow(), 'منذ ۱۰ ايام ');
-      expect(jiffy10.from(Jiffy([2019, 10, 1])), 'منذ شهر واحد');
+      expect(jiffy10.from(Jiffy.parseDateTime([2019, 10, 1])), 'منذ شهر واحد');
       expect(jiffy11.fromNow(), 'منذ ۱۰ اشهر ');
       expect(jiffy12.fromNow(), 'منذ عام واحد');
       expect(jiffy13.fromNow(), 'منذ ۱۰ أعوام ');
@@ -79,7 +79,7 @@ void main() {
       expect(jiffy7.fromNow(), 'منذ 10 ساعات ');
       expect(jiffy8.fromNow(), 'منذ يوم');
       expect(jiffy9.fromNow(), 'منذ 10 أيام ');
-      expect(jiffy10.from(Jiffy('2019-10-01')), 'منذ شهر');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'منذ شهر');
       expect(jiffy11.fromNow(), 'منذ 10 أشهر ');
       expect(jiffy12.fromNow(), 'منذ سنة');
       expect(jiffy13.fromNow(), 'منذ 10 سنوات ');
@@ -98,7 +98,7 @@ void main() {
       expect(jiffy7.fromNow(), 'منذ ۱۰ ساعات ');
       expect(jiffy8.fromNow(), 'منذ يوم');
       expect(jiffy9.fromNow(), 'منذ ۱۰ أيام ');
-      expect(jiffy10.from(Jiffy([2019, 10, 1])), 'منذ شهر');
+      expect(jiffy10.from(Jiffy.parseDateTime([2019, 10, 1])), 'منذ شهر');
       expect(jiffy11.fromNow(), 'منذ ۱۰ أشهر ');
       expect(jiffy12.fromNow(), 'منذ سنة');
       expect(jiffy13.fromNow(), 'منذ ۱۰ سنوات ');
@@ -117,7 +117,7 @@ void main() {
       expect(jiffy7.fromNow(), 'vor 10 Stunden');
       expect(jiffy8.fromNow(), 'vor einem Tag');
       expect(jiffy9.fromNow(), 'vor 10 Tagen');
-      expect(jiffy10.from(Jiffy('2019-10-01')), 'vor einem Monat');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'vor einem Monat');
       expect(jiffy11.fromNow(), 'vor 10 Monaten');
       expect(jiffy12.fromNow(), 'vor einem Jahr');
       expect(jiffy13.fromNow(), 'vor 10 Jahren');
@@ -136,7 +136,7 @@ void main() {
       expect(jiffy7.fromNow(), '10 hours ago');
       expect(jiffy8.fromNow(), 'a day ago');
       expect(jiffy9.fromNow(), '10 days ago');
-      expect(jiffy10.from(Jiffy('2019-10-01')), 'a month ago');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'a month ago');
       expect(jiffy11.fromNow(), '10 months ago');
       expect(jiffy12.fromNow(), 'a year ago');
       expect(jiffy13.fromNow(), '10 years ago');
@@ -155,7 +155,7 @@ void main() {
       expect(jiffy7.fromNow(), '10 jam yang lalu');
       expect(jiffy8.fromNow(), 'satu hari yang lalu');
       expect(jiffy9.fromNow(), '10 hari yang lalu');
-      expect(jiffy10.from(Jiffy('2019-10-01')), 'satu bulan yang lalu');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'satu bulan yang lalu');
       expect(jiffy11.fromNow(), '10 bulan yang lalu');
       expect(jiffy12.fromNow(), 'satu tahun yang lalu');
       expect(jiffy13.fromNow(), '10 tahun yang lalu');
@@ -174,7 +174,7 @@ void main() {
       expect(jiffy7.fromNow(), 'hace 10 horas');
       expect(jiffy8.fromNow(), 'hace un día');
       expect(jiffy9.fromNow(), 'hace 10 días');
-      expect(jiffy10.from(Jiffy('2019-10-01')), 'hace un mes');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'hace un mes');
       expect(jiffy11.fromNow(), 'hace 10 meses');
       expect(jiffy12.fromNow(), 'hace un año');
       expect(jiffy13.fromNow(), 'hace 10 años');
@@ -193,7 +193,7 @@ void main() {
       expect(jiffy7.fromNow(), 'il y a 10 heures');
       expect(jiffy8.fromNow(), 'il y a un jour');
       expect(jiffy9.fromNow(), 'il y a 10 jours');
-      expect(jiffy10.from(Jiffy('2019-10-01')), 'il y a un mois');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'il y a un mois');
       expect(jiffy11.fromNow(), 'il y a 10 mois');
       expect(jiffy12.fromNow(), 'il y a un an');
       expect(jiffy13.fromNow(), 'il y a 10 ans');
@@ -212,7 +212,7 @@ void main() {
       expect(jiffy7.fromNow(), '10 घंटे पहले');
       expect(jiffy8.fromNow(), 'एक दिन पहले');
       expect(jiffy9.fromNow(), '10 दिन पहले');
-      expect(jiffy10.from(Jiffy('2019-10-01')), 'एक महीने पहले');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'एक महीने पहले');
       expect(jiffy11.fromNow(), '10 महीने पहले');
       expect(jiffy12.fromNow(), 'एक वर्ष पहले');
       expect(jiffy13.fromNow(), '10 वर्ष पहले');
@@ -231,7 +231,7 @@ void main() {
       expect(jiffy7.fromNow(), '10 ore fa');
       expect(jiffy8.fromNow(), 'un giorno fa');
       expect(jiffy9.fromNow(), '10 giorni fa');
-      expect(jiffy10.from(Jiffy('2019-10-01')), 'un mese fa');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'un mese fa');
       expect(jiffy11.fromNow(), '10 mesi fa');
       expect(jiffy12.fromNow(), 'un anno fa');
       expect(jiffy13.fromNow(), '10 anni fa');
@@ -250,7 +250,7 @@ void main() {
       expect(jiffy7.fromNow(), '10時間前');
       expect(jiffy8.fromNow(), '1日前');
       expect(jiffy9.fromNow(), '10日前');
-      expect(jiffy10.from(Jiffy('2019-10-01')), '1ヶ月前');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), '1ヶ月前');
       expect(jiffy11.fromNow(), '10ヶ月前');
       expect(jiffy12.fromNow(), '1年前');
       expect(jiffy13.fromNow(), '10年前');
@@ -269,7 +269,7 @@ void main() {
       expect(jiffy7.fromNow(), '10시간 전');
       expect(jiffy8.fromNow(), '하루 전');
       expect(jiffy9.fromNow(), '10일 전');
-      expect(jiffy10.from(Jiffy('2019-10-01')), '한 달 전');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), '한 달 전');
       expect(jiffy11.fromNow(), '10달 전');
       expect(jiffy12.fromNow(), '일 년 전');
       expect(jiffy13.fromNow(), '10년 전');
@@ -288,7 +288,7 @@ void main() {
       expect(jiffy7.fromNow(), 'há 10 horas');
       expect(jiffy8.fromNow(), 'há um dia');
       expect(jiffy9.fromNow(), 'há 10 dias');
-      expect(jiffy10.from(Jiffy('2019-10-01')), 'há um mês');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'há um mês');
       expect(jiffy11.fromNow(), 'há 10 meses');
       expect(jiffy12.fromNow(), 'há um ano');
       expect(jiffy13.fromNow(), 'há 10 anos');
@@ -307,7 +307,7 @@ void main() {
       expect(jiffy7.fromNow(), '10 часов назад');
       expect(jiffy8.fromNow(), 'день назад');
       expect(jiffy9.fromNow(), '10 дней назад');
-      expect(jiffy10.from(Jiffy('2019-10-01')), 'месяц назад');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'месяц назад');
       expect(jiffy11.fromNow(), '10 месяцев назад');
       expect(jiffy12.fromNow(), 'год назад');
       expect(jiffy13.fromNow(), '10 лет назад');
@@ -326,7 +326,7 @@ void main() {
       expect(jiffy7.fromNow(), '10 saat geri');
       expect(jiffy8.fromNow(), 'gün geri');
       expect(jiffy9.fromNow(), '10 gün geri');
-      expect(jiffy10.from(Jiffy('2019-10-01')), 'ay geri');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'ay geri');
       expect(jiffy11.fromNow(), '10 ay geri');
       expect(jiffy12.fromNow(), 'il geri');
       expect(jiffy13.fromNow(), '10 il geri');
@@ -345,7 +345,7 @@ void main() {
       expect(jiffy7.fromNow(), '10 小时前');
       expect(jiffy8.fromNow(), '1 天前');
       expect(jiffy9.fromNow(), '10 天前');
-      expect(jiffy10.from(Jiffy('2019-10-01')), '1 个月前');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), '1 个月前');
       expect(jiffy11.fromNow(), '10 个月前');
       expect(jiffy12.fromNow(), '1 年前');
       expect(jiffy13.fromNow(), '10 年前');
@@ -364,7 +364,7 @@ void main() {
       expect(jiffy7.fromNow(), '10 小時前');
       expect(jiffy8.fromNow(), '1 天前');
       expect(jiffy9.fromNow(), '10 天前');
-      expect(jiffy10.from(Jiffy('2019-10-01')), '1 個月前');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), '1 個月前');
       expect(jiffy11.fromNow(), '10 個月前');
       expect(jiffy12.fromNow(), '1 年前');
       expect(jiffy13.fromNow(), '10 年前');
@@ -383,7 +383,7 @@ void main() {
       expect(jiffy7.fromNow(), '10 godzin temu');
       expect(jiffy8.fromNow(), '1 dzień temu');
       expect(jiffy9.fromNow(), '10 dni temu');
-      expect(jiffy10.from(Jiffy('2019-10-01')), 'miesiąc temu');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'miesiąc temu');
       expect(jiffy11.fromNow(), '10 miesięcy temu');
       expect(jiffy12.fromNow(), 'rok temu');
       expect(jiffy13.fromNow(), '10 lat temu');
@@ -402,7 +402,7 @@ void main() {
       expect(jiffy7.fromNow(), '10 saat önce');
       expect(jiffy8.fromNow(), 'bir gün önce');
       expect(jiffy9.fromNow(), '10 gün önce');
-      expect(jiffy10.from(Jiffy('2019-10-01')), 'bir ay önce');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'bir ay önce');
       expect(jiffy11.fromNow(), '10 ay önce');
       expect(jiffy12.fromNow(), 'bir yıl önce');
       expect(jiffy13.fromNow(), '10 yıl önce');
@@ -421,7 +421,7 @@ void main() {
       expect(jiffy7.fromNow(), '10 timmar sedan');
       expect(jiffy8.fromNow(), 'en dag sedan');
       expect(jiffy9.fromNow(), '10 dagar sedan');
-      expect(jiffy10.from(Jiffy('2019-10-01')), 'en månad sedan');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'en månad sedan');
       expect(jiffy11.fromNow(), '10 månader sedan');
       expect(jiffy12.fromNow(), 'ett år sedan');
       expect(jiffy13.fromNow(), '10 år sedan');
@@ -440,7 +440,7 @@ void main() {
       expect(jiffy7.fromNow(), '10 timer siden');
       expect(jiffy8.fromNow(), 'en dag siden');
       expect(jiffy9.fromNow(), '10 dager siden');
-      expect(jiffy10.from(Jiffy('2019-10-01')), 'en måned siden');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'en måned siden');
       expect(jiffy11.fromNow(), '10 måneder siden');
       expect(jiffy12.fromNow(), 'ett år siden');
       expect(jiffy13.fromNow(), '10 år siden');
@@ -459,7 +459,7 @@ void main() {
       expect(jiffy7.fromNow(), '۱۰ ساعت  پیش');
       expect(jiffy8.fromNow(), 'یک روز پیش');
       expect(jiffy9.fromNow(), '۱۰ روز  پیش');
-      expect(jiffy10.from(Jiffy([2019, 10, 1])), 'یک ماه پیش');
+      expect(jiffy10.from(Jiffy.parseDateTime([2019, 10, 1])), 'یک ماه پیش');
       expect(jiffy11.fromNow(), '۱۰ ماه  پیش');
       expect(jiffy12.fromNow(), 'یک سال پیش');
       expect(jiffy13.fromNow(), '۱۰ سال  پیش');
