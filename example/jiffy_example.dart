@@ -55,7 +55,9 @@ Future<int> main() async {
   DateTime.now().startOf(Units.HOUR).fromNow(); // 9 minutes ago
 
 //  MANIPULATING DATES
-  DateTime.now().jiffyAdd(duration: Duration(days: 1)).yMMMMd; // October 20, 2019
+  DateTime.now()
+      .jiffyAdd(duration: Duration(days: 1))
+      .yMMMMd; // October 20, 2019
 
   DateTime.now().jiffySubtract(days: 1).yMMMMd; // October 18, 2019
 

@@ -3,7 +3,9 @@ import 'package:test/test.dart';
 
 void main() {
   group('Test Jiffy cloning', () {
-    test('Test assignment constancy (not really necessary but there used to be a clone() function to test so I left this here). function no manipulation should be equal', () {
+    test(
+        'Test assignment constancy (not really necessary but there used to be a clone() function to test so I left this here). function no manipulation should be equal',
+        () {
       var jiffy1 = Jiffy.parseDateTime([2021]);
       var jiffy2 = jiffy1;
       expect(jiffy1.year, jiffy2.year);
@@ -47,16 +49,18 @@ void main() {
     test(
         'test Jiffy() instance with parsing ordinal pattern should return correct ordinal date',
         () {
+      expect(Jiffy.parseDateTime('Oct 1st 19', 'MMM do yy').format('MMM do yy'),
+          'Oct 1st 19');
+      expect(Jiffy.parseDateTime('Oct 2st 19', 'MMM do yy').format('MMM do yy'),
+          'Oct 2nd 19');
+      expect(Jiffy.parseDateTime('Oct 3st 19', 'MMM do yy').format('MMM do yy'),
+          'Oct 3rd 19');
       expect(
-          Jiffy.parseDateTime('Oct 1st 19', 'MMM do yy').format('MMM do yy'), 'Oct 1st 19');
+          Jiffy.parseDateTime('Oct 10st 19', 'MMM do yy').format('MMM do yy'),
+          'Oct 10th 19');
       expect(
-          Jiffy.parseDateTime('Oct 2st 19', 'MMM do yy').format('MMM do yy'), 'Oct 2nd 19');
-      expect(
-          Jiffy.parseDateTime('Oct 3st 19', 'MMM do yy').format('MMM do yy'), 'Oct 3rd 19');
-      expect(
-          Jiffy.parseDateTime('Oct 10st 19', 'MMM do yy').format('MMM do yy'), 'Oct 10th 19');
-      expect(
-          Jiffy.parseDateTime('Oct 21st 19', 'MMM do yy').format('MMM do yy'), 'Oct 21st 19');
+          Jiffy.parseDateTime('Oct 21st 19', 'MMM do yy').format('MMM do yy'),
+          'Oct 21st 19');
     });
     test(
         'test Jiffy() instance with parsing empty string pattern should set correct date time',
@@ -76,7 +80,8 @@ void main() {
     test(
         'test Jiffy() instance with parsing Jiffy object should set correct date time',
         () {
-      expect(Jiffy.parseDateTime(Jiffy.parseDateTime('2009', 'yyyy')).year, 2009);
+      expect(
+          Jiffy.parseDateTime(Jiffy.parseDateTime('2009', 'yyyy')).year, 2009);
     });
     test(
         'test Jiffy() instance with parsing Map object should set correct date time',

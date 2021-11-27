@@ -25,7 +25,8 @@ void main() {
     test(
         'test Jiffy().dayOfYear get method with parsing date time should return correct date time day of year',
         () {
-      expect(Jiffy.parseDateTime('2019, 10, 16', 'yyyy, MM, dd').dayOfYear, 289);
+      expect(
+          Jiffy.parseDateTime('2019, 10, 16', 'yyyy, MM, dd').dayOfYear, 289);
     });
     test(
         'test Jiffy().week get method with parsing date time should return correct date time week',

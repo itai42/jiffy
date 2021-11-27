@@ -10,7 +10,9 @@ void main() {
       var jiffy1 = Jiffy.parseDateTime('2010-10-20', 'yyyy-MM-dd');
       var jiffy2 = Jiffy.parseDateTime('2010-12-31', 'yyyy-MM-dd');
       var jiffy3 = Jiffy.parseDateTime('2011-01-01', 'yyyy-MM-dd');
-      expect(jiffy1.jiffyIsBefore(Jiffy.parseDateTime('2010-10-21', 'yyyy-MM-dd')), true);
+      expect(
+          jiffy1.jiffyIsBefore(Jiffy.parseDateTime('2010-10-21', 'yyyy-MM-dd')),
+          true);
       expect(jiffy1.jiffyIsBefore(jiffy2, Units.YEAR), false);
       expect(jiffy1.jiffyIsBefore(jiffy3, Units.YEAR), true);
     });
@@ -19,7 +21,9 @@ void main() {
         () {
       var jiffy1 = Jiffy.parseDateTime('2010-10-20', 'yyyy-MM-dd');
       var jiffy2 = Jiffy.parseDateTime('2010-01-01', 'yyyy-MM-dd');
-      expect(jiffy1.jiffyIsAfter(Jiffy.parseDateTime('2010-10-19', 'yyyy-MM-dd')), true);
+      expect(
+          jiffy1.jiffyIsAfter(Jiffy.parseDateTime('2010-10-19', 'yyyy-MM-dd')),
+          true);
       expect(jiffy1.jiffyIsAfter(jiffy2, Units.YEAR), false);
       expect(jiffy1.jiffyIsAfter([2009, 12, 31], Units.YEAR), true);
     });
@@ -29,7 +33,8 @@ void main() {
       var jiffy1 = Jiffy.parseDateTime('2010-10-20', 'yyyy-MM-dd');
       var jiffy2 = Jiffy.parseDateTime('2009-12-31', 'yyyy-MM-dd');
       var jiffy3 = Jiffy.parseDateTime('2010-01-01', 'yyyy-MM-dd');
-      expect(jiffy1.isSame(Jiffy.parseDateTime('2010-10-20', 'yyyy-MM-dd')), true);
+      expect(
+          jiffy1.isSame(Jiffy.parseDateTime('2010-10-20', 'yyyy-MM-dd')), true);
       expect(jiffy1.isSame(jiffy2, Units.YEAR), false);
       expect(jiffy1.isSame(jiffy3, Units.YEAR), true);
     });
@@ -39,8 +44,14 @@ void main() {
       var jiffy1 = Jiffy.parseDateTime('2010-10-20', 'yyyy-MM-dd');
       var jiffy2 = Jiffy.parseDateTime('2009-12-31', 'yyyy-MM-dd');
       var jiffy3 = Jiffy.parseDateTime('2010-12-31', 'yyyy-MM-dd');
-      expect(jiffy1.isSameOrBefore(Jiffy.parseDateTime('2010-10-21', 'yyyy-MM-dd')), true);
-      expect(jiffy1.isSameOrBefore(Jiffy.parseDateTime('2010-10-19', 'yyyy-MM-dd')), false);
+      expect(
+          jiffy1
+              .isSameOrBefore(Jiffy.parseDateTime('2010-10-21', 'yyyy-MM-dd')),
+          true);
+      expect(
+          jiffy1
+              .isSameOrBefore(Jiffy.parseDateTime('2010-10-19', 'yyyy-MM-dd')),
+          false);
       expect(jiffy1.isSameOrBefore(jiffy2, Units.YEAR), false);
       expect(jiffy1.isSameOrBefore(jiffy3, Units.YEAR), true);
     });
@@ -50,8 +61,12 @@ void main() {
       var jiffy1 = Jiffy.parseDateTime('2010-10-20', 'yyyy-MM-dd');
       var jiffy2 = Jiffy.parseDateTime('2011-12-31', 'yyyy-MM-dd');
       var jiffy3 = Jiffy.parseDateTime('2010-01-01', 'yyyy-MM-dd');
-      expect(jiffy1.isSameOrAfter(Jiffy.parseDateTime('2010-10-19', 'yyyy-MM-dd')), true);
-      expect(jiffy1.isSameOrAfter(Jiffy.parseDateTime('2010-10-21', 'yyyy-MM-dd')), false);
+      expect(
+          jiffy1.isSameOrAfter(Jiffy.parseDateTime('2010-10-19', 'yyyy-MM-dd')),
+          true);
+      expect(
+          jiffy1.isSameOrAfter(Jiffy.parseDateTime('2010-10-21', 'yyyy-MM-dd')),
+          false);
       expect(jiffy1.isSameOrAfter(jiffy2, Units.YEAR), false);
       expect(jiffy1.isSameOrAfter(jiffy3, Units.YEAR), true);
     });

@@ -1,13 +1,12 @@
-# Jiffy
+# Jiffy as a DateTime extension
 
-[![.github/workflows/release.yml](https://github.com/itai42/jiffy/actions/workflows/release.yml/badge.svg)](https://github.com/jama5262/jiffy/actions/workflows/release.yml)
-[![codecov](https://codecov.io/gh/itai42/jiffy/branch/master/graph/badge.svg?token=Z2EGVUGWTE)](https://codecov.io/gh/jama5262/jiffy)
+[![.github/workflows/release.yml](https://github.com/itai42/jiffyDateExtension/actions/workflows/release.yml/badge.svg)](https://github.com/itai42/jiffyDateExtension/actions/workflows/release.yml)
+[![codecov](https://codecov.io/gh/itai42/jiffyDateExtension/branch/master/graph/badge.svg?token=Z2EGVUGWTE)](https://codecov.io/gh/itai42/jiffyDateExtension)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Pub Version](https://img.shields.io/badge/pub-v4.1.0-blue)](https://pub.dev/packages/jiffyDateExtension)
-[![Platform](https://img.shields.io/badge/platform-flutter%7Cdart%7Cweb%7Candroid%7Cwindows%7Cnull%20safety%7C-Green)](https://github.com/itai42/jiffy)
+[![Platform](https://img.shields.io/badge/platform-flutter%7Cdart%7Cweb%7Candroid%7Cwindows%7Cnull%20safety%7C-Green)](https://github.com/itai42/jiffyDateExtension)
 
 
-Jiffy is a Flutter (Windows desktop Android, IOS and Web) date time extension package inspired [jiffy](https://github.com/jama5262/jiffy) which was in turn inspired by [momentjs](https://momentjs.com/) for parsing, manipulating, querying and formatting dates
+jiffyDateExtension is a Flutter (Windows desktop Android, IOS and Web) date time extension package inspired [jiffy](https://github.com/jama5262/jiffy) which was in turn inspired by [momentjs](https://momentjs.com/) for parsing, manipulating, querying and formatting dates
 
 # Table of content
 - [Parsing](#parsing)
@@ -16,8 +15,6 @@ Jiffy is a Flutter (Windows desktop Android, IOS and Web) date time extension pa
     - [String Formating](#string-formatting)
     - [Maps](#maps)
     - [Unix Timestamp](#unix-timestamp)
-    - [Jiffy Cloning](#jiffy-cloning)
-    - [DateTime](#datetime)
     - [List](#list)
     - [UTC](#utc)
 - [Get](#get)
@@ -147,7 +144,7 @@ jiffy2.year; // 2021
 Jiffy date time can be created from a dart DateTime instance. See below
 ```dart
 var dateTime = DateTime.now();
-Jiffy(dateTime);
+Jiffy.parseDateTime(dateTime);
 
 Jiffy(DateTime(2021, 5, 25)).yMMMM; // May 2021
 ```
@@ -177,27 +174,27 @@ jiffy.format(); // 2021-03-02T11:35:24.363919
 ### Days in month
 Get days in a month (Returns from 28 - 31)
 ```dart
-Jiffy().daysInMonth;
+DateTime.now().daysInMonth;
 ```
 ### Day of week
 Get day of week (Returns from 1 - 7 that is [Sunday - Saturday] depending on locale start of week)
 ```dart
-Jiffy().dayOfWeek;
+DateTime.now().dayOfWeek;
 ```
 ### Day of year
 Get day o year (Returns from 1 - 366)
 ```dart
-Jiffy().dayOfYear;
+DateTime.now().dayOfYear;
 ```
 ### Week of year
 Get week of year
 ```dart
-Jiffy().week;
+DateTime.now().week;
 ```
 ### Quarter
 Get quarter (Returns from 1 - 4)
 ```dart
-Jiffy().quarter;
+DateTime.now().quarter;
 ```
 
 # Manipulation
