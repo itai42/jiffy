@@ -6,6 +6,7 @@ import 'package:jiffy/src/enums/startOfWeek.dart';
 class FaLocale extends Locale {
   bool replaceNum;
   StartOfWeek strtOfWeek;
+
   FaLocale(this.replaceNum, this.strtOfWeek);
 
   @override
@@ -20,20 +21,27 @@ class FaLocale extends Locale {
 
 class FaRelativeTime extends RelativeTime {
   bool replaceNum;
+
   FaRelativeTime(this.replaceNum);
 
   @override
   String prefixAgo() => '';
+
   @override
   String prefixFromNow() => '';
+
   @override
   String suffixAgo() => 'پیش';
+
   @override
   String suffixFromNow() => 'بعد';
+
   @override
   String lessThanOneMinute(int seconds) => 'چند ثانیه';
+
   @override
   String aboutAMinute(int minutes) => 'یک دقیقه';
+
   @override
   String minutes(int minutes) {
     String result;
@@ -43,6 +51,7 @@ class FaRelativeTime extends RelativeTime {
 
   @override
   String aboutAnHour(int minutes) => 'یک ساعت';
+
   @override
   String hours(int hours) {
     String result;
@@ -52,6 +61,7 @@ class FaRelativeTime extends RelativeTime {
 
   @override
   String aDay(int hours) => 'یک روز';
+
   @override
   String days(int days) {
     String result;
@@ -61,6 +71,7 @@ class FaRelativeTime extends RelativeTime {
 
   @override
   String aboutAMonth(int days) => 'یک ماه';
+
   @override
   String months(int months) {
     String result;
@@ -70,6 +81,7 @@ class FaRelativeTime extends RelativeTime {
 
   @override
   String aboutAYear(int year) => 'یک سال';
+
   @override
   String years(int years) {
     String result;

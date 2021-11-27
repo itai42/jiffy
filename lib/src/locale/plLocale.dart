@@ -4,6 +4,7 @@ import 'package:jiffy/src/enums/startOfWeek.dart';
 
 class PlLocale extends Locale {
   StartOfWeek strtOfWeek;
+
   PlLocale(this.strtOfWeek);
 
   @override
@@ -19,16 +20,22 @@ class PlLocale extends Locale {
 class PlRelativeTime extends RelativeTime {
   @override
   String prefixAgo() => '';
+
   @override
   String prefixFromNow() => 'za';
+
   @override
   String suffixAgo() => 'temu';
+
   @override
   String suffixFromNow() => '';
+
   @override
   String lessThanOneMinute(int seconds) => 'kilka sekund';
+
   @override
   String aboutAMinute(int minutes) => 'minutę';
+
   @override
   String minutes(int minutes) {
     String result;
@@ -42,6 +49,7 @@ class PlRelativeTime extends RelativeTime {
 
   @override
   String aboutAnHour(int minutes) => 'godzinę';
+
   @override
   String hours(int hours) {
     String result;
@@ -55,10 +63,13 @@ class PlRelativeTime extends RelativeTime {
 
   @override
   String aDay(int hours) => '1 dzień';
+
   @override
   String days(int days) => '$days dni';
+
   @override
   String aboutAMonth(int days) => 'miesiąc';
+
   @override
   String months(int months) {
     String result;
@@ -72,6 +83,7 @@ class PlRelativeTime extends RelativeTime {
 
   @override
   String aboutAYear(int year) => 'rok';
+
   @override
   String years(int years) {
     String result;

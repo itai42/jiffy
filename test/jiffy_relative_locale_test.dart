@@ -36,13 +36,20 @@ void main() {
 
   group('Test for all relative date locales', () {
     var jiffy1 = Jiffy.parseDateTime();
-    var jiffy2 = Jiffy.parseDateTime()..jiffyAdd(duration: Duration(seconds: 1));
-    var jiffy3 = Jiffy.parseDateTime()..jiffySubtract(duration: Duration(minutes: 1));
-    var jiffy5 = Jiffy.parseDateTime()..jiffySubtract(duration: Duration(minutes: 10));
-    var jiffy6 = Jiffy.parseDateTime()..jiffySubtract(duration: Duration(hours: 1));
-    var jiffy7 = Jiffy.parseDateTime()..jiffySubtract(duration: Duration(hours: 10));
-    var jiffy8 = Jiffy.parseDateTime()..jiffySubtract(duration: Duration(days: 1));
-    var jiffy9 = Jiffy.parseDateTime()..jiffySubtract(duration: Duration(days: 10));
+    var jiffy2 = Jiffy.parseDateTime()
+      ..jiffyAdd(duration: Duration(seconds: 1));
+    var jiffy3 = Jiffy.parseDateTime()
+      ..jiffySubtract(duration: Duration(minutes: 1));
+    var jiffy5 = Jiffy.parseDateTime()
+      ..jiffySubtract(duration: Duration(minutes: 10));
+    var jiffy6 = Jiffy.parseDateTime()
+      ..jiffySubtract(duration: Duration(hours: 1));
+    var jiffy7 = Jiffy.parseDateTime()
+      ..jiffySubtract(duration: Duration(hours: 10));
+    var jiffy8 = Jiffy.parseDateTime()
+      ..jiffySubtract(duration: Duration(days: 1));
+    var jiffy9 = Jiffy.parseDateTime()
+      ..jiffySubtract(duration: Duration(days: 10));
     var jiffy10 = Jiffy.parseDateTime('2019-09-01');
     var jiffy11 = Jiffy.parseDateTime()..jiffySubtract(months: 10);
     var jiffy12 = Jiffy.parseDateTime()..jiffySubtract(years: 1);
@@ -117,7 +124,8 @@ void main() {
       expect(jiffy7.fromNow(), 'vor 10 Stunden');
       expect(jiffy8.fromNow(), 'vor einem Tag');
       expect(jiffy9.fromNow(), 'vor 10 Tagen');
-      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'vor einem Monat');
+      expect(
+          jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'vor einem Monat');
       expect(jiffy11.fromNow(), 'vor 10 Monaten');
       expect(jiffy12.fromNow(), 'vor einem Jahr');
       expect(jiffy13.fromNow(), 'vor 10 Jahren');
@@ -155,7 +163,8 @@ void main() {
       expect(jiffy7.fromNow(), '10 jam yang lalu');
       expect(jiffy8.fromNow(), 'satu hari yang lalu');
       expect(jiffy9.fromNow(), '10 hari yang lalu');
-      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')), 'satu bulan yang lalu');
+      expect(jiffy10.from(Jiffy.parseDateTime('2019-10-01')),
+          'satu bulan yang lalu');
       expect(jiffy11.fromNow(), '10 bulan yang lalu');
       expect(jiffy12.fromNow(), 'satu tahun yang lalu');
       expect(jiffy13.fromNow(), '10 tahun yang lalu');

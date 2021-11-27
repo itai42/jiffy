@@ -6,6 +6,7 @@ import 'package:jiffy/src/utils/replace.dart';
 class ArLyLocale extends Locale {
   bool replaceNum;
   StartOfWeek strtOfWeek;
+
   ArLyLocale(this.replaceNum, this.strtOfWeek);
 
   @override
@@ -21,6 +22,7 @@ class ArLyLocale extends Locale {
 class ArSaMaDzKwTnLocale extends Locale {
   bool replaceNum;
   StartOfWeek strtOfWeek;
+
   ArSaMaDzKwTnLocale(this.replaceNum, this.strtOfWeek);
 
   @override
@@ -35,20 +37,27 @@ class ArSaMaDzKwTnLocale extends Locale {
 
 class ArLyRelativeTime extends RelativeTime {
   bool replaceNum;
+
   ArLyRelativeTime(this.replaceNum);
 
   @override
   String prefixAgo() => 'منذ';
+
   @override
   String prefixFromNow() => 'بعد';
+
   @override
   String suffixAgo() => '';
+
   @override
   String suffixFromNow() => '';
+
   @override
   String lessThanOneMinute(int seconds) => 'ثانية واحدة';
+
   @override
   String aboutAMinute(int minutes) => 'دقيقة واحدة';
+
   @override
   String minutes(int minutes) {
     String result;
@@ -68,6 +77,7 @@ class ArLyRelativeTime extends RelativeTime {
 
   @override
   String aboutAnHour(int minutes) => 'ساعة واحدة';
+
   @override
   String hours(int hours) {
     String result;
@@ -87,6 +97,7 @@ class ArLyRelativeTime extends RelativeTime {
 
   @override
   String aDay(int hours) => 'يوم واحد';
+
   @override
   String days(int days) {
     String result;
@@ -106,6 +117,7 @@ class ArLyRelativeTime extends RelativeTime {
 
   @override
   String aboutAMonth(int days) => 'شهر واحد';
+
   @override
   String months(int months) {
     String result;
@@ -125,6 +137,7 @@ class ArLyRelativeTime extends RelativeTime {
 
   @override
   String aboutAYear(int year) => 'عام واحد';
+
   @override
   String years(int years) {
     String result;
@@ -148,20 +161,27 @@ class ArLyRelativeTime extends RelativeTime {
 
 class ArSaMaDzKwTnRelativeTime extends RelativeTime {
   bool replaceNum;
+
   ArSaMaDzKwTnRelativeTime(this.replaceNum);
 
   @override
   String prefixAgo() => 'منذ';
+
   @override
   String prefixFromNow() => 'في';
+
   @override
   String suffixAgo() => '';
+
   @override
   String suffixFromNow() => '';
+
   @override
   String lessThanOneMinute(int seconds) => 'ثوان';
+
   @override
   String aboutAMinute(int minutes) => 'دقيقة';
+
   @override
   String minutes(int minutes) {
     return replaceNum
@@ -171,6 +191,7 @@ class ArSaMaDzKwTnRelativeTime extends RelativeTime {
 
   @override
   String aboutAnHour(int minutes) => 'ساعة';
+
   @override
   String hours(int hours) {
     return replaceNum
@@ -180,6 +201,7 @@ class ArSaMaDzKwTnRelativeTime extends RelativeTime {
 
   @override
   String aDay(int hours) => 'يوم';
+
   @override
   String days(int days) {
     return replaceNum ? replaceToLocaleNum('$days أيام ', 'ar') : '$days أيام ';
@@ -187,6 +209,7 @@ class ArSaMaDzKwTnRelativeTime extends RelativeTime {
 
   @override
   String aboutAMonth(int days) => 'شهر';
+
   @override
   String months(int months) {
     return replaceNum
@@ -196,6 +219,7 @@ class ArSaMaDzKwTnRelativeTime extends RelativeTime {
 
   @override
   String aboutAYear(int year) => 'سنة';
+
   @override
   String years(int years) {
     return replaceNum

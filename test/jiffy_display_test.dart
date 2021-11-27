@@ -7,21 +7,29 @@ void main() {
     test(
         'test Jiffy().format get method with parsing date time should return correct date time string',
         () {
-      expect(Jiffy.parseDateTime('20191016').format('MMMM dd, yyyy'), 'October 16, 2019');
-      expect(Jiffy.parseDateTime('2019-10-16 12:00').format('[Today is] dd MMM'),
+      expect(Jiffy.parseDateTime('20191016').format('MMMM dd, yyyy'),
+          'October 16, 2019');
+      expect(
+          Jiffy.parseDateTime('2019-10-16 12:00').format('[Today is] dd MMM'),
           'Today is 16 Oct');
       expect(Jiffy.parseDateTime('2019-10-16T00:00:00.000').format('MMMMEEEEd'),
           'Wednesday, October 16');
-      expect(Jiffy.parseDateTime('2019/10/16').format(), '2019-10-16T00:00:00.000');
+      expect(Jiffy.parseDateTime('2019/10/16').format(),
+          '2019-10-16T00:00:00.000');
     });
     test(
         'test Jiffy().format get method with parsing ordianl date time should return correct date time string',
         () {
-      expect(Jiffy.parseDateTime([2019, 10, 1]).format('MMM do yy'), 'Oct 1st 19');
-      expect(Jiffy.parseDateTime([2019, 10, 2]).format('MMM do yy'), 'Oct 2nd 19');
-      expect(Jiffy.parseDateTime([2019, 10, 3]).format('MMM do yy'), 'Oct 3rd 19');
-      expect(Jiffy.parseDateTime([2019, 10, 10]).format('MMM do yy'), 'Oct 10th 19');
-      expect(Jiffy.parseDateTime([2019, 10, 21]).format('MMM do yy'), 'Oct 21st 19');
+      expect(
+          Jiffy.parseDateTime([2019, 10, 1]).format('MMM do yy'), 'Oct 1st 19');
+      expect(
+          Jiffy.parseDateTime([2019, 10, 2]).format('MMM do yy'), 'Oct 2nd 19');
+      expect(
+          Jiffy.parseDateTime([2019, 10, 3]).format('MMM do yy'), 'Oct 3rd 19');
+      expect(Jiffy.parseDateTime([2019, 10, 10]).format('MMM do yy'),
+          'Oct 10th 19');
+      expect(Jiffy.parseDateTime([2019, 10, 21]).format('MMM do yy'),
+          'Oct 21st 19');
     });
     test(
         'test Jiffy().defaultDatetime get method with parsing date time should return correct date time string',
@@ -37,7 +45,8 @@ void main() {
       expect(Jiffy.parseDateTime([2019, 10, 16]).MMMEd, 'Wed, Oct 16');
       expect(Jiffy.parseDateTime([2019, 10, 16]).MMMM, 'October');
       expect(Jiffy.parseDateTime([2019, 10, 16]).MMMMd, 'October 16');
-      expect(Jiffy.parseDateTime([2019, 10, 16]).MMMMEEEEd, 'Wednesday, October 16');
+      expect(Jiffy.parseDateTime([2019, 10, 16]).MMMMEEEEd,
+          'Wednesday, October 16');
       expect(Jiffy.parseDateTime([2019, 10, 16]).QQQ, 'Q4');
       expect(Jiffy.parseDateTime([2019, 10, 16]).QQQQ, '4th quarter');
       expect(Jiffy.parseDateTime([2019, 10, 16]).yM, '10/2019');
@@ -45,24 +54,39 @@ void main() {
       expect(Jiffy.parseDateTime([2019, 10, 16]).yMEd, 'Wed, 10/16/2019');
       expect(Jiffy.parseDateTime([2019, 10, 16]).yMMM, 'Oct 2019');
       expect(Jiffy.parseDateTime([2019, 10, 16]).yMMMd, 'Oct 16, 2019');
-      expect(Jiffy.parseDateTime([2019, 10, 16]).yMMMdjm, 'Oct 16, 2019 12:00 AM');
+      expect(
+          Jiffy.parseDateTime([2019, 10, 16]).yMMMdjm, 'Oct 16, 2019 12:00 AM');
       expect(Jiffy.parseDateTime([2019, 10, 16]).yMMMEd, 'Wed, Oct 16, 2019');
-      expect(Jiffy.parseDateTime([2019, 10, 16]).yMMMEdjm, 'Wed, Oct 16, 2019 12:00 AM');
+      expect(Jiffy.parseDateTime([2019, 10, 16]).yMMMEdjm,
+          'Wed, Oct 16, 2019 12:00 AM');
       expect(Jiffy.parseDateTime([2019, 10, 16]).yMMMM, 'October 2019');
       expect(Jiffy.parseDateTime([2019, 10, 16]).yMMMMd, 'October 16, 2019');
-      expect(Jiffy.parseDateTime([2019, 10, 16]).yMMMMdjm, 'October 16, 2019 12:00 AM');
-      expect(Jiffy.parseDateTime([2019, 10, 16]).yMMMMEEEEd, 'Wednesday, October 16, 2019');
+      expect(Jiffy.parseDateTime([2019, 10, 16]).yMMMMdjm,
+          'October 16, 2019 12:00 AM');
+      expect(Jiffy.parseDateTime([2019, 10, 16]).yMMMMEEEEd,
+          'Wednesday, October 16, 2019');
       expect(Jiffy.parseDateTime([2019, 10, 16]).yMMMMEEEEdjm,
           'Wednesday, October 16, 2019 12:00 AM');
       expect(Jiffy.parseDateTime([2019, 10, 16]).yQQQ, 'Q4 2019');
       expect(Jiffy.parseDateTime([2019, 10, 16]).yQQQQ, '4th quarter 2019');
-      expect(Jiffy.parseDateTime('2019, 10, 16 3:30 AM', 'yyyy, MM, dd hh:mm a').Hm, '03:30');
-      expect(Jiffy.parseDateTime('2019, 10, 16 3:30 am', 'yyyy, MM, dd hh:mm a').Hms,
-          '03:30:00');
-      expect(Jiffy.parseDateTime('2019, 10, 16 3:30 pm', 'yyyy, MM, dd hh:mm a').j, '3 PM');
       expect(
-          Jiffy.parseDateTime('2019, 10, 16 3:30 am', 'yyyy, MM, dd hh:mm a').jm, '3:30 AM');
-      expect(Jiffy.parseDateTime('2019, 10, 16 3:30 PM', 'yyyy, MM, dd hh:mm a').jms,
+          Jiffy.parseDateTime('2019, 10, 16 3:30 AM', 'yyyy, MM, dd hh:mm a')
+              .Hm,
+          '03:30');
+      expect(
+          Jiffy.parseDateTime('2019, 10, 16 3:30 am', 'yyyy, MM, dd hh:mm a')
+              .Hms,
+          '03:30:00');
+      expect(
+          Jiffy.parseDateTime('2019, 10, 16 3:30 pm', 'yyyy, MM, dd hh:mm a').j,
+          '3 PM');
+      expect(
+          Jiffy.parseDateTime('2019, 10, 16 3:30 am', 'yyyy, MM, dd hh:mm a')
+              .jm,
+          '3:30 AM');
+      expect(
+          Jiffy.parseDateTime('2019, 10, 16 3:30 PM', 'yyyy, MM, dd hh:mm a')
+              .jms,
           '3:30:00 PM');
     });
   });
@@ -72,7 +96,8 @@ void main() {
         'test Jiffy().fromNow() method with parsing date time should return correct relative date time string',
         () {
       expect(Jiffy.parseDateTime().fromNow(), 'a few seconds ago');
-      var jiffy1 = Jiffy.parseDateTime()..jiffyAdd(duration: Duration(seconds: 20));
+      var jiffy1 = Jiffy.parseDateTime()
+        ..jiffyAdd(duration: Duration(seconds: 20));
       expect(jiffy1.fromNow(), 'in a few seconds');
       var jiffy2 = Jiffy.parseDateTime()..jiffySubtract(months: 20);
       expect(jiffy2.fromNow(), 'a year ago');
@@ -81,11 +106,16 @@ void main() {
         'test Jiffy().from() method with parsing date time should return correct relative date time string',
         () {
       var jiffy1 = Jiffy.parseDateTime([2019, 10, 16]);
-      expect(Jiffy.parseDateTime('2019, 10, 20', 'yyyy, MM, dd').from(jiffy1), 'in 4 days');
-      var jiffy2 = Jiffy.parseDateTime([2019, 10, 16])..jiffyAdd(duration: Duration(days: 10));
-      expect(Jiffy.parseDateTime('2019, 10, 20', 'yyyy, MM, dd').from(jiffy2), '6 days ago');
-      var jiffy3 = Jiffy.parseDateTime([2019, 10, 16])..jiffySubtract(months: 20);
-      expect(Jiffy.parseDateTime('2019, 10, 20', 'yyyy, MM, dd').from(jiffy3), 'in a year');
+      expect(Jiffy.parseDateTime('2019, 10, 20', 'yyyy, MM, dd').from(jiffy1),
+          'in 4 days');
+      var jiffy2 = Jiffy.parseDateTime([2019, 10, 16])
+        ..jiffyAdd(duration: Duration(days: 10));
+      expect(Jiffy.parseDateTime('2019, 10, 20', 'yyyy, MM, dd').from(jiffy2),
+          '6 days ago');
+      var jiffy3 = Jiffy.parseDateTime([2019, 10, 16])
+        ..jiffySubtract(months: 20);
+      expect(Jiffy.parseDateTime('2019, 10, 20', 'yyyy, MM, dd').from(jiffy3),
+          'in a year');
     });
   });
 
@@ -94,68 +124,93 @@ void main() {
         'test Jiffy().diff() method with parsing date time should return correct date time in seconds',
         () {
       expect(
-          Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a').diff(
-              Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
-                ..jiffyAdd(duration: Duration(seconds: 1)),
-              Units.SECOND),
+          Jiffy.parseDateTime(
+                  '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+              .diff(
+                  Jiffy.parseDateTime(
+                      '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+                    ..jiffyAdd(duration: Duration(seconds: 1)),
+                  Units.SECOND),
           -1);
       expect(
-          Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a').diff(
-              Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
-                ..jiffySubtract(duration: Duration(seconds: 25, milliseconds: 200)),
-              Units.SECOND,
-              true),
+          Jiffy.parseDateTime(
+                  '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+              .diff(
+                  Jiffy.parseDateTime(
+                      '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+                    ..jiffySubtract(
+                        duration: Duration(seconds: 25, milliseconds: 200)),
+                  Units.SECOND,
+                  true),
           25.2);
     });
     test(
         'test Jiffy.parseDateTime().diff() method with parsing date time should return correct date time in minutes',
         () {
       expect(
-          Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a').diff(
-              Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
-                ..jiffyAdd(duration: Duration(seconds: 1)),
-              Units.MINUTE),
+          Jiffy.parseDateTime(
+                  '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+              .diff(
+                  Jiffy.parseDateTime(
+                      '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+                    ..jiffyAdd(duration: Duration(seconds: 1)),
+                  Units.MINUTE),
           0);
       expect(
-          Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a').diff(
-              Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
-                ..jiffySubtract(duration: Duration(seconds: 178)),
-              Units.MINUTE,
-              true),
+          Jiffy.parseDateTime(
+                  '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+              .diff(
+                  Jiffy.parseDateTime(
+                      '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+                    ..jiffySubtract(duration: Duration(seconds: 178)),
+                  Units.MINUTE,
+                  true),
           2.966666666666667);
     });
     test(
         'test Jiffy.parseDateTime().diff() method with parsing date time should return correct date time in hours',
         () {
       expect(
-          Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a').diff(
-              Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
-                ..jiffyAdd(duration: Duration(seconds: 1)),
-              Units.HOUR),
+          Jiffy.parseDateTime(
+                  '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+              .diff(
+                  Jiffy.parseDateTime(
+                      '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+                    ..jiffyAdd(duration: Duration(seconds: 1)),
+                  Units.HOUR),
           0);
       expect(
-          Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a').diff(
-              Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
-                ..jiffyAdd(duration: Duration(hours: 12, minutes: 30)),
-              Units.HOUR,
-              true),
+          Jiffy.parseDateTime(
+                  '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+              .diff(
+                  Jiffy.parseDateTime(
+                      '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+                    ..jiffyAdd(duration: Duration(hours: 12, minutes: 30)),
+                  Units.HOUR,
+                  true),
           -12.5);
     });
     test(
         'test Jiffy().diff() method with parsing date time should return correct date time in days',
         () {
       expect(
-          Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a').diff(
-              Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
-                ..jiffyAdd(duration: Duration(seconds: 1)),
-              Units.DAY),
+          Jiffy.parseDateTime(
+                  '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+              .diff(
+                  Jiffy.parseDateTime(
+                      '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+                    ..jiffyAdd(duration: Duration(seconds: 1)),
+                  Units.DAY),
           0);
       expect(
-          Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a').diff(
-              Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
-                ..jiffySubtract(hours: 2),
-              Units.DAY,
-              true),
+          Jiffy.parseDateTime(
+                  '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+              .diff(
+                  Jiffy.parseDateTime(
+                      '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+                    ..jiffySubtract(hours: 2),
+                  Units.DAY,
+                  true),
           0.08333333333333333);
     });
     test(
@@ -169,7 +224,8 @@ void main() {
           0);
       expect(
           Jiffy.parseDateTime(DateTime(2019, 10, 16, 23)).diff(
-              Jiffy.parseDateTime(DateTime(2019, 10, 16, 23))..jiffyAdd(days: 2, hours: 23),
+              Jiffy.parseDateTime(DateTime(2019, 10, 16, 23))
+                ..jiffyAdd(days: 2, hours: 23),
               Units.WEEK,
               true),
           -0.4226190476190476);
@@ -179,40 +235,54 @@ void main() {
         () {
       expect(
           Jiffy.parseDateTime([2019, 10, 20, 22]).diff(
-              Jiffy.parseDateTime([2019, 10, 16, 22])..jiffyAdd(duration: Duration(seconds: 1)),
+              Jiffy.parseDateTime([2019, 10, 16, 22])
+                ..jiffyAdd(duration: Duration(seconds: 1)),
               Units.MONTH),
           0);
       expect(
           Jiffy.parseDateTime([2019, 10, 16, 22]).diff(
-              Jiffy.parseDateTime([2019, 10, 16, 22])..jiffyAdd(weeks: 2), Units.MONTH, true),
+              Jiffy.parseDateTime([2019, 10, 16, 22])..jiffyAdd(weeks: 2),
+              Units.MONTH,
+              true),
           -0.45161290322580644);
       expect(
           Jiffy.parseDateTime([2019, 10, 16, 22]).diff(
-              Jiffy.parseDateTime([2019, 10, 16, 22])..jiffyAdd(months: 2), Units.MONTH, true),
+              Jiffy.parseDateTime([2019, 10, 16, 22])..jiffyAdd(months: 2),
+              Units.MONTH,
+              true),
           -2.0);
     });
     test(
         'test Jiffy().diff() method with parsing date time should return correct date time in years',
         () {
       expect(
-          Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a').diff(
-              Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
-                ..jiffyAdd(duration: Duration(seconds: 1)),
-              Units.YEAR),
+          Jiffy.parseDateTime(
+                  '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+              .diff(
+                  Jiffy.parseDateTime(
+                      '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+                    ..jiffyAdd(duration: Duration(seconds: 1)),
+                  Units.YEAR),
           0);
       expect(
-          Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a').diff(
-              Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
-                ..jiffyAdd(weeks: 2),
-              Units.YEAR,
-              true),
+          Jiffy.parseDateTime(
+                  '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+              .diff(
+                  Jiffy.parseDateTime(
+                      '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+                    ..jiffyAdd(weeks: 2),
+                  Units.YEAR,
+                  true),
           -0.03763440860215054);
       expect(
-          Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a').diff(
-              Jiffy.parseDateTime('2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
-                ..jiffyAdd(years: 2),
-              Units.YEAR,
-              true),
+          Jiffy.parseDateTime(
+                  '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+              .diff(
+                  Jiffy.parseDateTime(
+                      '2019, 10, 16 10:00:00 pm', 'yyyy, MM, dd h:mm:ss a')
+                    ..jiffyAdd(years: 2),
+                  Units.YEAR,
+                  true),
           -2.0);
     });
   });

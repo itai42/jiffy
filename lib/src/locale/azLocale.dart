@@ -4,6 +4,7 @@ import 'package:jiffy/src/enums/startOfWeek.dart';
 
 class AzLocale extends Locale {
   StartOfWeek strtOfWeek;
+
   AzLocale(this.strtOfWeek);
 
   @override
@@ -19,34 +20,49 @@ class AzLocale extends Locale {
 class AzRelativeTime extends RelativeTime {
   @override
   String prefixAgo() => '';
+
   @override
   String prefixFromNow() => '';
+
   @override
   String suffixAgo() => 'geri';
+
   @override
   String suffixFromNow() => 'sonra';
+
   @override
   String lessThanOneMinute(int seconds) => 'bir neçə saniyə';
+
   @override
   String aboutAMinute(int minutes) => 'dəqiqə';
+
   @override
   String minutes(int minutes) => '$minutes ${_convert(minutes, 'minutes')}';
+
   @override
   String aboutAnHour(int minutes) => 'saat';
+
   @override
   String hours(int hours) => '$hours ${_convert(hours, 'hours')}';
+
   @override
   String aDay(int hours) => 'gün';
+
   @override
   String days(int days) => '$days ${_convert(days, 'days')}';
+
   @override
   String aboutAMonth(int days) => 'ay';
+
   @override
   String months(int months) => '$months ${_convert(months, 'months')}';
+
   @override
   String aboutAYear(int year) => 'il';
+
   @override
   String years(int years) => '$years ${_convert(years, 'years')}';
+
   @override
   String wordSeparator() => ' ';
 }

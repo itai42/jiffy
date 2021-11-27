@@ -11,14 +11,14 @@ import 'package:jiffy/src/utils/normalize_units.dart';
 import 'package:jiffy/src/utils/regex.dart';
 import 'package:jiffy/src/utils/replace.dart';
 
-mixin HasDateTimeRead{
+mixin HasDateTimeRead {
   DateTime get dateTime;
 }
-mixin HasDateTimeWrite{
+mixin HasDateTimeWrite {
   set dateTime(DateTime val);
 }
-extension Jiffy on DateTime {
 
+extension Jiffy on DateTime {
   static const daysInMonthArray = [
     0,
     31,
@@ -37,6 +37,7 @@ extension Jiffy on DateTime {
 
   static bool isLeapYear(int year) =>
       (year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0));
+
   bool get leapYear => isLeapYear(year);
 
   static int getDaysInMonth(int year, int month) {
@@ -45,54 +46,30 @@ extension Jiffy on DateTime {
     return result;
   }
 
-  int monthsUntil(DateTime other){
-    return (other.year - year) * 12 + (other.month-month);
+  int monthsUntil(DateTime other) {
+    return (other.year - year) * 12 + (other.month - month);
   }
+
   DateTime get firstDayOfMonth {
-    return isUtc ?
-    DateTime.utc(
-        year,
-        month,
-        1,
-        hour,
-        minute,
-        second,
-        millisecond,
-        microsecond)
+    return isUtc
+        ? DateTime.utc(
+            year, month, 1, hour, minute, second, millisecond, microsecond)
         : DateTime(
-        year,
-        month,
-        1,
-        hour,
-        minute,
-        second,
-        millisecond,
-        microsecond);
+            year, month, 1, hour, minute, second, millisecond, microsecond);
   }
+
   DateTime get lastDayOfMonth {
-    return isUtc ?
-    DateTime.utc(
-        year,
-        month,
-        daysInMonth,
-        hour,
-        minute,
-        second,
-        millisecond,
-        microsecond)
-        : DateTime(
-        year,
-        month,
-        daysInMonth,
-        hour,
-        minute,
-        second,
-        millisecond,
-        microsecond);
+    return isUtc
+        ? DateTime.utc(year, month, daysInMonth, hour, minute, second,
+            millisecond, microsecond)
+        : DateTime(year, month, daysInMonth, hour, minute, second, millisecond,
+            microsecond);
   }
 
   static Locale? _internalDefaultLocale;
-  static Locale get defaultLocale => _internalDefaultLocale ??= _initializeLocale();
+
+  static Locale get defaultLocale =>
+      _internalDefaultLocale ??= _initializeLocale();
 
   //DateTime get dateTime => this;
 
@@ -248,11 +225,13 @@ extension Jiffy on DateTime {
 
   int get daysInMonth => getDaysInMonth(year, month);
 
-  int get dayOfYear => int.parse(DateFormat('D').format(this)); //ToDo: make better?
+  int get dayOfYear =>
+      int.parse(DateFormat('D').format(this)); //ToDo: make better?
 
   int get week => ((dayOfYear - dayOfWeek + 10) / 7).floor();
 
-  int get quarter => int.parse(DateFormat('Q').format(this)); //ToDo: make better?
+  int get quarter =>
+      int.parse(DateFormat('Q').format(this)); //ToDo: make better?
 
 //  MANIPULATE
   DateTime jiffyAdd({
@@ -274,21 +253,21 @@ extension Jiffy on DateTime {
     var ret = DateTime(
         utcDateTime.year,
         utcDateTime.month,
-
         min(dayOfMonth, getDaysInMonth(utcDateTime.year, utcDateTime.month)),
         utcDateTime.hour,
         utcDateTime.minute,
         utcDateTime.second,
         utcDateTime.millisecond,
         utcDateTime.microsecond);
-    ret = ret.add(duration + Duration(
-      days: days + (weeks * 7),
-      hours: hours,
-      minutes: minutes,
-      seconds: seconds,
-      milliseconds: milliseconds,
-      microseconds: microseconds,
-    ));
+    ret = ret.add(duration +
+        Duration(
+          days: days + (weeks * 7),
+          hours: hours,
+          minutes: minutes,
+          seconds: seconds,
+          milliseconds: milliseconds,
+          microseconds: microseconds,
+        ));
     return ret;
   }
 
@@ -306,7 +285,7 @@ extension Jiffy on DateTime {
   }) {
     var totalMonths = months + years * 12;
     var ret = this;
-    if (totalMonths < 0){
+    if (totalMonths < 0) {
       ret = _addMonths(ret, -totalMonths);
     }
     ret = ret.subtract(duration);
@@ -318,7 +297,7 @@ extension Jiffy on DateTime {
       milliseconds: milliseconds,
       microseconds: microseconds,
     ));
-    if (totalMonths > 0){
+    if (totalMonths > 0) {
       ret = _addMonths(ret, -totalMonths);
     }
     return ret;
@@ -327,23 +306,13 @@ extension Jiffy on DateTime {
   DateTime startOf(Units units) {
     switch (units) {
       case Units.MILLISECOND:
-        return DateTime(
-            year,
-            month,
-            day,
-            hour,
-            minute,
-            second,
-            millisecond);
+        return DateTime(year, month, day, hour, minute, second, millisecond);
       case Units.SECOND:
-        return DateTime(year, month, day,
-            hour, minute, second);
+        return DateTime(year, month, day, hour, minute, second);
       case Units.MINUTE:
-        return DateTime(year, month, day,
-            hour, minute);
+        return DateTime(year, month, day, hour, minute);
       case Units.HOUR:
-        return DateTime(
-            year, month, day, hour);
+        return DateTime(year, month, day, hour);
       case Units.DAY:
         return DateTime(year, month, day);
       case Units.WEEK:
@@ -361,29 +330,20 @@ extension Jiffy on DateTime {
   DateTime endOf(Units units) {
     switch (units) {
       case Units.MILLISECOND:
-        return DateTime(
-            year,
-            month,
-            day,
-            hour,
-            minute,
-            second,
-            millisecond);
+        return DateTime(year, month, day, hour, minute, second, millisecond);
       case Units.SECOND:
-        return DateTime(year, month, day,
-            hour, minute, second, 999);
+        return DateTime(year, month, day, hour, minute, second, 999);
       case Units.MINUTE:
-        return DateTime(year, month, day,
-            hour, minute, 59, 999);
+        return DateTime(year, month, day, hour, minute, 59, 999);
       case Units.HOUR:
-        return DateTime(year, month, day,
-            hour, 59, 59, 999);
+        return DateTime(year, month, day, hour, 59, 59, 999);
       case Units.DAY:
-        return DateTime(
-            year, month, day, 23, 59, 59, 999);
+        return DateTime(year, month, day, 23, 59, 59, 999);
       case Units.WEEK:
-        var newDate = jiffyAdd(duration: Duration(days: DateTime.daysPerWeek - dayOfWeek));
-        return DateTime(newDate.year, newDate.month, newDate.day, 23, 59, 59, 999);
+        var newDate = jiffyAdd(
+            duration: Duration(days: DateTime.daysPerWeek - dayOfWeek));
+        return DateTime(
+            newDate.year, newDate.month, newDate.day, 23, 59, 59, 999);
       case Units.MONTH:
         var ldom = daysInMonthArray[month];
         if (leapYear && month == 2) {
@@ -394,7 +354,6 @@ extension Jiffy on DateTime {
         return DateTime(year, 12, 31, 23, 59, 59, 999);
     }
   }
-
 
   DateTime addMonths(int months) {
     final r = months % 12;
@@ -407,13 +366,14 @@ extension Jiffy on DateTime {
     }
     final newDay = min(day, daysInMonth);
     if (isUtc) {
-      return DateTime.utc(newYear, newMonth, newDay, hour, minute,
-          second, millisecond, microsecond);
+      return DateTime.utc(newYear, newMonth, newDay, hour, minute, second,
+          millisecond, microsecond);
     } else {
-      return DateTime(newYear, newMonth, newDay, hour, minute,
-          second, millisecond, microsecond);
+      return DateTime(newYear, newMonth, newDay, hour, minute, second,
+          millisecond, microsecond);
     }
   }
+
   static DateTime _addMonths(DateTime from, int months) {
     final r = months % 12;
     final q = (months - r) ~/ 12;
@@ -634,15 +594,18 @@ extension Jiffy on DateTime {
       [Units units = Units.MILLISECOND]) {
     var dateTimeFrom = _parse(inputFrom);
     var dateTimeTo = _parse(inputTo);
-    return jiffyIsAfter(dateTimeFrom, units) && jiffyIsBefore(dateTimeTo, units);
+    return jiffyIsAfter(dateTimeFrom, units) &&
+        jiffyIsBefore(dateTimeTo, units);
   }
 
   bool isInRange(var inputFromIclusive, var inputToExclusive,
       [Units units = Units.MILLISECOND]) {
     var dateTimeFrom = _parse(inputFromIclusive);
     var dateTimeTo = _parse(inputToExclusive);
-    return isSameOrAfter(dateTimeFrom, units) && jiffyIsBefore(dateTimeTo, units);
+    return isSameOrAfter(dateTimeFrom, units) &&
+        jiffyIsBefore(dateTimeTo, units);
   }
 
-  static bool? isDateTime(dynamic input) => (input == null)?null:(input is DateTime);
+  static bool? isDateTime(dynamic input) =>
+      (input == null) ? null : (input is DateTime);
 }
